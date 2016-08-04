@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Clientes com filmes alugados</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1 class="titles">Clientes com locações realizadas</h1>
+                <h:dataTable value="#{controladorLocacao.getClientesComLocacoes()}" var="cliDevs" cellpadding="9" class="tabelas"
+                             cellspacing="5" headerClass="cabecalho" columnClasses="colunmStye, colunmStye, colunmStye">
+                    <f:facet name="header">Cliente com locações</f:facet>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{cliDevs.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Telefone"/>
+                        </f:facet>
+                        <h:outputText value="#{cliDevs.telefone}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="E-mail"/>
+                        </f:facet>
+                        <h:outputText value="#{cliDevs.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Ação"/>
+                        </f:facet>
+                        <h:commandLink class="linksAtualizar" value="Ver filmes alugados" action="#{controladorLocacao.setIdSessao(cliDevs.id_pessoa)}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:commandLink class="linksVoltar" value="Voltar" action="backGeren"/>
+            </h:form>
+            <img id="imgClienteCFilm" src="images/universidade.png" alt="under" />
+        </f:view>
+    </h:body>
+</html>
+

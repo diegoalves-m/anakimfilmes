@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Gerenciamento clientes</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="scripts/script.js"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1 class="titles">Gerenciamento clientes</h1>
+                <h:dataTable value="#{controladorCliente.listaTodos()}" var="cliente" styleClass="tabelas" cellpadding="9"
+                             cellspacing="5" headerClass="cabecalho" columnClasses="colunmStye, colunmStye, colunmStye, colunmStye, colunmStye">
+                    <f:facet name="header">Listagem de clientes</f:facet>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Nome"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cliente.nome}" />
+                    </h:column>
+                    <!--                    <h:column>
+                                            <f:facet name="header">
+                                                <h:outputLabel value="E-mail"/>
+                                            </f:facet>
+                                            <h:outputLabel value="#{cliente.email}" />
+                                        </h:column>-->
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Telefone:"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cliente.telefone}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Bairro:"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cliente.endereco.bairro}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Rua:"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cliente.endereco.rua}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Nº casa"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cliente.endereco.numero}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Ação"/>
+                        </f:facet>
+                        <h:commandLink class="linksAtualizar" value="Atualizar" action="#{controladorCliente.atualizaCliente(cliente)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Ação"/>
+                        </f:facet>
+                        <h:commandLink class="linksRemover" value="Remover" action="#{controladorCliente.remover(cliente)}" onmouseover="mudaFotoDel('images/desespero.png')" onmouseout="mudaFotoDel('images/gerente.png')"
+                                       onclick="if (!confirm('Deseja realmente excluir #{funcionario.nome} ?'))
+                                                   return false"/>
+                    </h:column>
+                </h:dataTable>
+                <h:commandLink class="linksVoltar" value="Voltar" action="backGeren"/>
+            </h:form>
+            <h:messages class="messages"/>
+            <img id="gerente" src="images/gerente.png" alt="gerenciamento"/>
+        </f:view>
+    </h:body>
+</html>
+

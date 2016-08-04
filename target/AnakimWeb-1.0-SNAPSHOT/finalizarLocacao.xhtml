@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Finalizando locação</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1 class="titles">Finalizando locação</h1>
+                <h:form>
+                    <h:dataTable value="#{controladorLocacao.listClientes}" var="cliente" class="tabelas" cellpadding="9" cellspacing="5"
+                                 headerClass="cabecalho" columnClasses="colunmStye, colunmStye, colunmStye, colunmStye">
+                        <f:facet name="header">Clientes</f:facet>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Nome cliente"/>
+                            </f:facet>
+                            <h:outputLabel value="#{cliente.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="CPF cliente"/>
+                            </f:facet>
+                            <h:outputLabel value="#{cliente.cpf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Bairro"/>
+                            </f:facet>
+                            <h:outputLabel value="#{cliente.endereco.bairro}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Pontos"/>
+                            </f:facet>
+                            <h:outputLabel value="#{cliente.pontos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Ação"/>
+                            </f:facet>
+                            <h:commandLink class="linksAtualizar" value="Selecionar cliente" action="#{controladorLocacao.setCliente(cliente)}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:outputLabel class="labelLocFim" value="Valor: "/>
+                    <h:outputText class="values" value="#{controladorLocacao.valor}"/><h:outputText value=" R$" /><br></br>
+                    <h:outputLabel class="labelLocFim" value="Data atual: "/>
+                    <h:outputText class="values" value="#{controladorLocacao.dataLocacao}"/><br></br>
+                    <h:outputLabel class="labelLocFim" value="Data delolução: "/>
+                    <h:outputText class="values" value="#{controladorLocacao.dataDevolucao}"/>
+                    <h:commandLink class="linksSalvar" value="Adicionar + 1 dia" action="#{controladorLocacao.adicionaDia()}"/><br></br>
+                    <br></br>
+                    <h:commandLink class="linksVoltar" value="Finalizar locação" action="#{controladorLocacao.finalizaLocacao()}" onclick="alert('Locação finalizada.')"/><br></br><br></br><br></br>
+                    <h:commandLink class="linksRemover" value="Cancelar" action="#{controladorLocacao.cancelar()}"/>
+                </h:form>
+            <img id="imgFimLoc" src="images/locacao.png" alt="locacao"/>
+        </f:view>
+    </h:body>
+</html>
+

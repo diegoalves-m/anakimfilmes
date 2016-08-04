@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Gerenciamento</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="scripts/script.js" />
+        <script type="text/javascript" src="scripts/slideShow.js" />     
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1 class="titles">Gerenciamento</h1>
+            <h:form>  
+                <ul class="ulEdited">
+                    <li class="liEdited"><h:commandLink value="Funcionário"/>
+                        <ul class="ulEdited">
+                            <li class="liEdited"><h:commandLink value="Cadastro" action="cadFunc"/></li>
+                            <li class="liEdited"><h:commandLink value="Gerenciamento" action="gerenFunc"/></li>
+                        </ul>
+                    </li>
+                    <li class="liEdited"><h:commandLink value="Cliente"/>
+                        <ul class="ulEdited">
+                            <li class="liEdited"><h:commandLink value="Cadastro" action="cadClien"/></li>
+                            <li class="liEdited"><h:commandLink value="Gerenciamento" action="gerenClien"/></li>
+                        </ul>
+                    </li>
+                    <li class="liEdited"><h:commandLink value="Filme"/>
+                        <ul class="ulEdited">
+                            <li class="liEdited"><h:commandLink value="Cadastro" action="cadFilm"/></li>
+                            <li class="liEdited"><h:commandLink value="Gerenciamento" action="gerenFilm"/></li>
+                        </ul>
+                    </li>
+                    <li class="liEdited"><h:commandLink value="Locação" action="locacao"/></li>
+                    <li class="liEdited"><h:commandLink value="Devolução" action="devolucao"/></li>
+                    <li class="liEdited"><h:commandLink value="Sair" action="#{controladorFuncionario.sair()}"/></li>
+                </ul>
+            </h:form>
+            <div id="slideShowImages">
+                <img src="images/avatar.jpg" alt="Avatar"/>
+                <img src="images/piratas.jpg" alt="piratas"/>
+                <img src="images/Resident-Evil Retribution.jpg" alt="resident"/>
+                <img src="images/Os Instrumentos Mortais Cidade dos Ossos.jpg" alt="city of bones"/>         
+                <img src="images/todomundo.jpg" alt="todoMundo"/>
+                <img src="images/underworld.jpg" alt="underworld"/>
+
+            </div>
+        </f:view>
+    </h:body>
+</html>
+

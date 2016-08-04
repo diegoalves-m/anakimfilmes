@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="scripts/script.js"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1 class="titles">Gerenciamento funcionários</h1>
+                <h:dataTable value="#{controladorFuncionario.listaTodos()}" var="funcionario" styleClass="tabelas" cellspacing="5" 
+                             headerClass="cabecalho" cellpadding="9" columnClasses="colunmStye, colunmStye, colunmStye, colunmStye, colunmStye">
+                    <f:facet name="header">Listagem de Funcionários</f:facet>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome" />
+                        </f:facet>
+                        <h:outputLabel value="#{funcionario.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Idade" />
+                        </f:facet>
+                        <h:outputLabel value="#{funcionario.idade}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Sexo" />
+                        </f:facet>
+                        <h:outputLabel value="#{funcionario.sexo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="E-mail" />
+                        </f:facet>
+                        <h:outputLabel value="#{funcionario.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefone" />
+                        </f:facet>
+                        <h:outputLabel value="#{funcionario.telefone}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ação"/>
+                        </f:facet>
+                        <h:commandLink class="linksAtualizar" value="Atualizar" action="#{controladorFuncionario.atualizarFunc(funcionario)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ação"/>
+                        </f:facet>
+                        <h:commandLink value="Remover" class="linksRemover" action="#{controladorFuncionario.remover(funcionario)}" onmouseover="mudaFotoDel('images/desespero.png')" onmouseout="mudaFotoDel('images/gerente.png')"
+                                       onclick="if (!confirm('Deseja realmente excluir #{funcionario.nome} ?'))
+                                                   return false"/>
+                    </h:column>
+                </h:dataTable>
+                <h:commandLink class="linksVoltar" value="Voltar" action="backGeren"/>
+            </h:form>
+            <h:messages class="messages"/>
+            <img id="gerente" src="images/gerente.png" alt="gerenciamento"/>
+        </f:view>
+    </h:body>
+</html>
+

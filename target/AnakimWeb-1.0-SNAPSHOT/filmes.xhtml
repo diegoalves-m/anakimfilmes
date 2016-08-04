@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Filme</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1 class="titles">Filmes</h1>
+            <div class="central">
+                <h:form>
+                    <h:panelGrid>
+                        <h:outputLabel value="Nome do filme:"/>
+                        <h:inputText class="field" value="#{controladorMidia.filme.nome}"/>
+                        <h:outputLabel value="Ano de lançamento:"/>
+                        <h:inputText class="field" value="#{controladorMidia.filme.anoLancamento}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:inputText>
+                        <h:outputLabel value="Categoria:"/>
+                        <h:inputText class="field" value="#{controladorMidia.categoria.descricao}"/>
+                        <h:outputLabel value="Tipo de midia:"/>
+                        <h:inputText class="field" value="#{controladorMidia.midia.tipo}"/>
+                        <h:outputLabel value="Situação da midia:"/>
+                        <h:inputText class="field" value="#{controladorMidia.midia.situacao}"/>
+                        <h:outputLabel value="Sinopse"/>
+                        <h:inputTextarea class="fieldSinopse" value="#{controladorMidia.filme.sinopse}"/>
+                    </h:panelGrid>
+                    <br></br>
+                    <h:commandLink class="linksSalvar" rendered="#{!controladorMidia.editando}" value="Salvar" action="#{controladorMidia.salvarMidia()}"/>
+                    <h:commandLink class="linksAtualizar" rendered="#{controladorMidia.editando}" value="Atualizar" action="#{controladorMidia.enviaAtualizacao()}"/><br></br>
+                    <br></br><br></br>
+                    <h:commandLink  rendered="#{!controladorMidia.editando}" class="linksVoltar" value="Voltar" action="backGeren"/>
+                </h:form>
+                <h:messages class="messages"/>
+            </div>
+            <img id="desenho2" src="images/comoTSeuDrag.png" alt="comoTreinarSeuDragao"/>
+            <img id="desenho1" src="images/roloFilme.png" alt="roloFilme"/>          
+        </f:view>
+    </h:body>
+</html>
+

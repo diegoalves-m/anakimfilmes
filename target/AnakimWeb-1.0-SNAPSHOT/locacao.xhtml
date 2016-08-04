@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Locação</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1 class="titles">Locação</h1>
+            <div id="centralLoc">
+                <h:form>
+                    <h:dataTable value="#{controladorMidia.listFilmes}" var="filme" class="tabelas"
+                                 headerClass="cabecalho" cellpadding="9" cellspacing="5" columnClasses="colunmStye">
+                        <f:facet name="header">Filmes para locação</f:facet>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Nome filme"/>
+                            </f:facet>
+                            <h:outputText value="#{filme.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Ação"/>
+                            </f:facet>
+                            <h:commandLink  class="linksSalvar" value="Alugar" action="#{controladorLocacao.andamentoLocacao(filme)}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="Disponível"/>
+                            </f:facet>
+                            <h:outputText class="#{controladorMidia.disponivel(controladorMidia.status)}" value="#{controladorMidia.vereificaLocacao(filme.id_filme)}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandLink value="Voltar" action="backGeren" class="linksVoltar"/>
+                </h:form>
+                <h:messages/>      
+            </div>
+            <img id="desenho1" src="images/comoTSeuDrag.png" alt="comoTreinarSeuDragao"/>
+            <img id="desenho2" src="images/roloFilme.png" alt="roloFilme"/>
+        </f:view>
+    </h:body>
+</html>
+

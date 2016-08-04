@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1 class="titles">Devolução</h1>
+            <h:form>
+                <h:dataTable value="#{controladorLocacao.getListaLocacoesPorCliente()}" var="Loc" cellpadding="9" cellspacing="5" 
+                             class="tabelas" headerClass="cabecalho" columnClasses="colunmStye, colunmStye, colunmStye, colunmStye">
+                    <f:facet name="header">Devolução</f:facet>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome filme"/>
+                        </f:facet>
+                        <h:outputText value="#{Loc.midia.filme.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data devolução"/>
+                        </f:facet>
+                        <h:outputText value="#{Loc.dataDevolucao}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Data locação"/>
+                        </f:facet>
+                        <h:outputText value="#{Loc.dataEmprestimo}">
+                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Valor"/>
+                        </f:facet>
+                        <h:outputText value="#{Loc.valor}"/><h:outputText value=" R$"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Ação"/>
+                        </f:facet>
+                        <h:commandLink class="linksAtualizar" value="Devolver" action="#{controladorLocacao.devoulucao(Loc)}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:messages class="messages"/>
+                <h:commandLink class="linksVoltar" value="Voltar" action="backDevCliente"/>
+            </h:form>
+            <img id="imgFimDev" src="images/devolucao.png" alt="devolucao"/>
+        </f:view>
+    </h:body>
+</html>
+

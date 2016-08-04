@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inicial</title>
+        <link href="folhasEstilo/style.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <div class="top">
+                <h1 class="titles">AnakimFilmes</h1>
+            </div>
+            <div class="central">
+                <h:form>
+                    <h:panelGrid columns="1" style="border-radius: 20px">
+                        <h:outputLabel value="E-mail:"/>
+                        <h:inputText value="#{controladorFuncionario.funcionario.email}" class="field"/>
+                        <h:outputLabel value="Senha:"/>
+                        <h:inputSecret value="#{controladorFuncionario.funcionario.senha}" class="field"/><br></br>
+                        <h:commandLink class="linksSalvar" value="Entrar" action="#{controladorFuncionario.autenticar()}"/>
+                    </h:panelGrid>
+                    <img id="sraSmith" src="images/sraSmith.png" alt="sraSmith" />
+                    <img id="srSmith" src="images/srSmith.png" alt="srSmith" />
+                    <h:messages class="messages"/>
+                    
+                </h:form>
+            </div>
+            <h1 id="text">Alugando seu passatempo</h1>
+        </f:view>
+    </h:body>
+</html>
+
